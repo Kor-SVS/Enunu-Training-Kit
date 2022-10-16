@@ -74,7 +74,7 @@ def split_mono_label_middle(label: Label, frequency) -> List[Label]:
     pauが10回出現するたびに分割する。
     """
     if frequency <= 0:
-        raise ValueError('Argument "frequency" must be positive integer.')
+        raise ValueError('인수 "frequency"는 양의 정수여야 합니다.')
 
     new_label = Label()
     result = [new_label]
@@ -145,7 +145,7 @@ def split_full_label_middle(full_label: HTSFullLabel, frequency: int) -> List[HT
     pauが10回出現するたびに分割する。
     """
     if frequency <= 0:
-        raise ValueError('Argument "frequency" must be positive integer.')
+        raise ValueError('인수 "frequency"는 양의 정수여야 합니다.')
     new_label = HTSFullLabel()
     result = [new_label]
 
@@ -206,7 +206,7 @@ def split_label(label: Union[Label, HTSFullLabel], mode: str, middle_frequency: 
     mode: 'short' か 'long' のいずれか
     """
     if mode not in ('short', 'middle', 'long'):
-        raise ValueError('Argument "mode" must be "short" or "long".')
+        raise ValueError('인수 "mode"는 "short", "middle" 또는 "long"이어야 합니다.')
 
     if isinstance(label, Label):
         if mode == 'short':
