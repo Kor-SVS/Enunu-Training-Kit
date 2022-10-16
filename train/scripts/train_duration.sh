@@ -29,6 +29,6 @@ xrun nnsvs-train $ext $hydra_opt \
     data.in_scaler_path=$dump_norm_dir/in_duration_scaler.joblib \
     data.out_scaler_path=$dump_norm_dir/out_duration_scaler.joblib \
     train.out_dir=$expdir/duration \
-	log_dir=tensorboard/$expname/$duration_model \
+	train.log_dir=tensorboard/$expname/$duration_model \
 	$post_args
     # train.resume.checkpoint=$resume_checkpoint $post_args

@@ -1,4 +1,5 @@
 ETK_python
+venv
 /tensorboard*
 /source/*
 !/source/dic

@@ -27,6 +27,11 @@ do
         acoustic.sample_rate=$sample_rate \
         acoustic.trajectory_smoothing=${trajectory_smoothing} \
         acoustic.trajectory_smoothing_cutoff=${trajectory_smoothing_cutoff} \
+        timelag.label_phone_score_dir=target/data/timelag/label_phone_score \
+        timelag.label_phone_align_dir=target/data/timelag/label_phone_align \
+		duration.label_dir=target/data/duration/label_phone_align \
+		acoustic.wav_dir=target/data/acoustic/wav \
+		acoustic.label_dir=target/data/acoustic/label_phone_align \
 		max_workers=8
 done
 

@@ -39,6 +39,6 @@ xrun nnsvs-train-postfilter $ext $hydra_opt \
     data.out_scaler_path=$dump_norm_dir/out_postfilter_scaler.joblib \
     data.sample_rate=$sample_rate \
     train.out_dir=$expdir/$postfilter_model \
-	log_dir=tensorboard/$expname/$postfilter_model \
+	train.log_dir=tensorboard/$expname/$postfilter_model \
     train.resume.netG.checkpoint=$resume_checkpoint_g \
     train.resume.netD.checkpoint=$resume_checkpoint_d $post_args

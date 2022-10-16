@@ -28,6 +28,6 @@ xrun nnsvs-train $ext $hydra_opt \
     +data.in_scaler_path=$dump_norm_dir/in_acoustic_scaler.joblib \
     +data.out_scaler_path=$dump_norm_dir/out_acoustic_scaler.joblib \
     train.out_dir=$expdir/acoustic \
-	log_dir=tensorboard/$expname/$acoustic_model \
+	train.log_dir=tensorboard/$expname/$acoustic_model \
     $post_args
     #train.resume.checkpoint=$resume_checkpoint $post_args
