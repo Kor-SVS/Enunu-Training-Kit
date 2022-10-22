@@ -29,7 +29,13 @@ git clone https://github.com/Kor-SVS/Enunu-Training-Kit.git
 
 ### CUDA 개발 킷 설치 및 PyTorch 설치
 
-TODO...
+[CUDA Tool Kit ver.11.3](https://developer.nvidia.com/cuda-11.3.0-download-archive)을 설치합니다.
+
+```
+python -m pip install torch==1.12.0+cu113 torchvision==0.13.0+cu113 torchaudio==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu113
+```
+
+해당 명령어를 입력하여 파이토치를 설치합니다.
 
 ### 필요 패키지 설치
 
