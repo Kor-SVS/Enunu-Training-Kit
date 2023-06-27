@@ -52,6 +52,8 @@ python -m pip install torch==1.12.0+cu113 torchvision==0.13.0+cu113 torchaudio==
 
     4. `python -m pip install (다운로드 경로)`를 입력하여 설치합니다.
 
+    5. `python -m pip install git+https://github.com/Kor-SVS/g2pK.git`를 입력하여 g2pK 수정버전을 설치합니다.
+
 2. enunu-kor-tool 설치
 
     1. `python -m pip install git+https://github.com/Kor-SVS/enunu-kor-tool.git`를 입력하여 설치합니다.
@@ -65,6 +67,8 @@ python -m pip install torch==1.12.0+cu113 torchvision==0.13.0+cu113 torchaudio==
     1. `python -m pip install pydub hydra-optuna-sweeper mlflow`를 입력하여 설치합니다.
 
 ### 실행 방법
+
+> 라벨 파일의 오류 확인은 `lab_test.bat`을 실행하여 사용하시면 됩니다.
 
 run.bat 또는 run_resf0.bat(권장)으로 실행할 수 있습니다.
 
