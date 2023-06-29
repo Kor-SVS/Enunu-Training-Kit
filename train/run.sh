@@ -8,6 +8,7 @@ function xrun () {
     set +x
 }
 
+NNSVS_ROOT="nnsvs"
 CONFIG_PATH="train/config.yaml"
 
 script_dir=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
@@ -155,49 +156,65 @@ if [ ${stage} -le 7 ] && [ ${stop_stage} -ge 7 ]; then
     echo "#  stage 7: Prepare postfilter           #"
     echo "#                                        #"
     echo "##########################################"
+    # changed-----------------------------------------------
+    # . $NNSVS_COMMON_ROOT/generate.sh || exit 1;
+    # to----------------------------------------------------
     . $NNSVS_SHELL_SCRIPTS_ROOT/prepare_postfilter.sh || exit 1;
+    # ------------------------------------------------------
     echo ""
 fi
 
-# Train mgc postfilter
-if [ ${stage} -le 8 ] && [ ${stop_stage} -ge 8 ]; then
-    echo "##########################################"
-    echo "#                                        #"
-    echo "#  stage 8: Training mgc postfilter      #"
-    echo "#                                        #"
-    echo "##########################################"
-	postfilter_model="postfilter_mgc"
-	postfilter_train="mgc"
-	postfilter_data="mgc_data"
-    . $NNSVS_SHELL_SCRIPTS_ROOT/train_postfilter.sh || exit 1;
-    echo ""
-fi
+# # Train mgc postfilter
+# if [ ${stage} -le 8 ] && [ ${stop_stage} -ge 8 ]; then
+#     echo "##########################################"
+#     echo "#                                        #"
+#     echo "#  stage 8: Training mgc postfilter      #"
+#     echo "#                                        #"
+#     echo "##########################################"
+#     # changed-----------------------------------------------
+#     # . $NNSVS_COMMON_ROOT/generate.sh || exit 1;
+#     # to----------------------------------------------------
+# 	postfilter_model="postfilter_mgc"
+# 	postfilter_train="mgc"
+# 	postfilter_data="mgc_data"
+#     . $NNSVS_SHELL_SCRIPTS_ROOT/train_postfilter.sh || exit 1;
+#     # ------------------------------------------------------
+#     echo ""
+# fi
 
-# Train bap postfilter
-if [ ${stage} -le 9 ] && [ ${stop_stage} -ge 9 ]; then
-    echo "##########################################"
-    echo "#                                        #"
-    echo "#  stage 9: Training bap postfilter      #"
-    echo "#                                        #"
-    echo "##########################################"
-	postfilter_model="postfilter_bap"
-	postfilter_train="bap"
-	postfilter_data="bap_data"
-    . $NNSVS_SHELL_SCRIPTS_ROOT/train_postfilter.sh || exit 1;
-    echo ""
-fi
+# # Train bap postfilter
+# if [ ${stage} -le 9 ] && [ ${stop_stage} -ge 9 ]; then
+#     echo "##########################################"
+#     echo "#                                        #"
+#     echo "#  stage 9: Training bap postfilter      #"
+#     echo "#                                        #"
+#     echo "##########################################"
+#     # changed-----------------------------------------------
+#     # . $NNSVS_COMMON_ROOT/generate.sh || exit 1;
+#     # to----------------------------------------------------
+# 	postfilter_model="postfilter_bap"
+# 	postfilter_train="bap"
+# 	postfilter_data="bap_data"
+#     . $NNSVS_SHELL_SCRIPTS_ROOT/train_postfilter.sh || exit 1;
+#     # ------------------------------------------------------
+#     echo ""
+# fi
 
-# Merge postfilter models
-if [ ${stage} -le 10 ] && [ ${stop_stage} -ge 10 ]; then
-    echo "##########################################"
-    echo "#                                        #"
-    echo "#  stage 10: Merge postfilter models     #"
-    echo "#                                        #"
-    echo "##########################################"
-    python $NNSVS_SHELL_SCRIPTS_ROOT/merge_postfilters.py $expdir/postfilter_mgc/latest.pth $expdir/postfilter_bap/latest.pth $expdir/postfilter || exit 1;
-    python $NNSVS_SHELL_SCRIPTS_ROOT/merge_postfilters.py $expdir/postfilter_mgc/best_loss.pth $expdir/postfilter_bap/best_loss.pth $expdir/postfilter || exit 1;
-    echo ""
-fi
+# # Merge postfilter models
+# if [ ${stage} -le 10 ] && [ ${stop_stage} -ge 10 ]; then
+#     echo "##########################################"
+#     echo "#                                        #"
+#     echo "#  stage 10: Merge postfilter models     #"
+#     echo "#                                        #"
+#     echo "##########################################"
+#     # changed-----------------------------------------------
+#     # . $NNSVS_COMMON_ROOT/generate.sh || exit 1;
+#     # to----------------------------------------------------
+#     python $NNSVS_SHELL_SCRIPTS_ROOT/merge_postfilters.py $expdir/postfilter_mgc/latest.pth $expdir/postfilter_bap/latest.pth $expdir/postfilter || exit 1;
+#     python $NNSVS_SHELL_SCRIPTS_ROOT/merge_postfilters.py $expdir/postfilter_mgc/best_loss.pth $expdir/postfilter_bap/best_loss.pth $expdir/postfilter || exit 1;
+#     # ------------------------------------------------------
+#     echo ""
+# fi
 
 # Vocoder stuff
 #if [ ${stage} -le 11 ] && [ ${stop_stage} -ge 11 ]; then
